@@ -25,7 +25,7 @@ class RecommendedItem extends StatelessWidget {
             ],
             color: Color(0xFF343534),
             borderRadius: BorderRadius.circular(
-              10,
+              7,
             )),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

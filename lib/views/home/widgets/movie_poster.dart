@@ -22,7 +22,7 @@ class _MoviePosterState extends State<MoviePoster> {
           height: widget.height,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
-              10,
+              6,
             ),
             image: const DecorationImage(
               fit: BoxFit.cover,

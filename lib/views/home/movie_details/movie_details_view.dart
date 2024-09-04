@@ -60,11 +60,11 @@ class MovieDetailsView extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    RecommendedSection(
-                      label: "More Like This",
-                    )
                   ],
                 ),
+              ),
+              RecommendedSection(
+                label: "More Like This",
               )
             ],
           ),
