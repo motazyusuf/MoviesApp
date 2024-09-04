@@ -25,6 +25,7 @@ class HomeView extends StatelessWidget {
                   TopPageMovie(),
                 ],
                 options: CarouselOptions(
+                    pauseAutoPlayOnTouch: true,
                     height: 290,
                     viewportFraction: 1,
                     autoPlay: true,
