@@ -13,9 +13,20 @@ class RecommendedItem extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
       child: Container(
-        height: 184,
         width: 97,
-        decoration: BoxDecoration(color: Color(0xFF343534)),
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.6),
+                spreadRadius: 1,
+                blurRadius: 7,
+                offset: Offset(-4, -3), // changes position of shadow
+              ),
+            ],
+            color: Color(0xFF343534),
+            borderRadius: BorderRadius.circular(
+              10,
+            )),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

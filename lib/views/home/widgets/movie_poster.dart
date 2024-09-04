@@ -20,8 +20,11 @@ class _MoviePosterState extends State<MoviePoster> {
         Container(
           width: widget.width,
           height: widget.height,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              10,
+            ),
+            image: const DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage("assets/images/movieCover.png"),
             ),
