@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MoviePoster extends StatelessWidget {
+class MoviePoster extends StatefulWidget {
   MoviePoster({super.key, this.height = 180, this.width = 120});
 
   double height, width;
+
+  @override
+  State<MoviePoster> createState() => _MoviePosterState();
+}
+
+class _MoviePosterState extends State<MoviePoster> {
+  bool isBookmarked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +18,8 @@ class MoviePoster extends StatelessWidget {
       alignment: Alignment.topLeft,
       children: [
         Container(
-          width: width,
-          height: height,
+          width: widget.width,
+          height: widget.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -21,10 +28,16 @@ class MoviePoster extends StatelessWidget {
           ),
         ),
         InkWell(
-            onTap: () {},
-            child: Image.asset(
-              "assets/icons/add_to_bookmark.png",
-            )),
+            onTap: () {
+              setState(() {
+                isBookmarked = !isBookmarked;
+              });
+            },
+            child: isBookmarked
+                ? Image.asset("assets/icons/bookmarked.png")
+                : Image.asset(
+                    "assets/icons/add_to_bookmark.png",
+                  )),
       ],
     );
   }
