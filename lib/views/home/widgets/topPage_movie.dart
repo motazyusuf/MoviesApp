@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/views/home/widgets/movie_poster.dart';
 
 class TopPageMovie extends StatelessWidget {
   const TopPageMovie({super.key});
@@ -68,28 +69,7 @@ class TopPageMovie extends StatelessWidget {
           Positioned(
             top: 100,
             left: 20,
-            child: Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Container(
-                  width: 120,
-                  height: 180,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/images/movieCover.png"),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: -10,
-                  bottom: 135,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Image.asset("assets/icons/add_to_bookmark.png")),
-                ),
-              ],
-            ),
+            child: MoviePoster(),
           )
         ],
       ),
