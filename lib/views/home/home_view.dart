@@ -16,21 +16,19 @@ class HomeView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: CarouselSlider(
-                items: const [
-                  TopPageMovie(),
-                  TopPageMovie(),
-                  TopPageMovie(),
-                  TopPageMovie(),
-                ],
-                options: CarouselOptions(
-                    pauseAutoPlayOnTouch: true,
-                    height: 290,
-                    viewportFraction: 1,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3))),
-          ),
+          CarouselSlider(
+              items: const [
+                TopPageMovie(),
+                TopPageMovie(),
+                TopPageMovie(),
+                TopPageMovie(),
+              ],
+              options: CarouselOptions(
+                  pauseAutoPlayOnTouch: true,
+                  height: 270,
+                  viewportFraction: 1,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3))),
           // const TopPageMovie(),
           const SizedBox(
             height: 20,
