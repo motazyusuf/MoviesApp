@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/configurations/pages_routes.dart';
 import '../movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {
@@ -8,8 +9,10 @@ class RecommendedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return Container(
-      height: 184,
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
+      child: Container(
+        height: 184,
       width: 97,
       decoration: BoxDecoration(color: Color(0xFF343534)),
       child: Column(
@@ -45,6 +48,7 @@ class RecommendedItem extends StatelessWidget {
             ),
           )
         ],
+      ),
       ),
     );
   }

@@ -4,9 +4,9 @@ import 'package:movies_app/views/home/widgets/recommended/recommended_item.dart'
 import '../../../../core/theme/color_palette.dart';
 
 class RecommendedSection extends StatelessWidget {
-  const RecommendedSection({super.key});
+  RecommendedSection({super.key, this.label = "Recommended"});
 
-  // decoration: BoxDecoration(color: Color(0xFF343534)),
+  String label;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class RecommendedSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recommended",
+            label,
             style: theme.textTheme.titleSmall,
           ),
           const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/configurations/pages_routes.dart';
 import '../../../core/theme/color_palette.dart';
 import 'movie_poster.dart';
 
@@ -26,13 +27,17 @@ class NewReleases extends StatelessWidget {
             ),
             Expanded(
                 child: ListView.separated(
-                    separatorBuilder: (context, index) => SizedBox(
+                    separatorBuilder: (context, index) => const SizedBox(
                           width: 10,
                         ),
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => MoviePoster(
-                          width: 96.8,
-                          height: 127.74,
+                    itemBuilder: (context, index) => InkWell(
+                          onTap: () => Navigator.pushNamed(
+                              context, PagesRoutes.movieDetailsView),
+                          child: MoviePoster(
+                            width: 96.8,
+                            height: 127.74,
+                          ),
                         ),
                     itemCount: 200)),
           ],

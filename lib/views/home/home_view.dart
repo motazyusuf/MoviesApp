@@ -11,16 +11,16 @@ class HomeView extends StatelessWidget {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
     var theme = Theme.of(context);
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TopPageMovie(),
-          SizedBox(
+          const TopPageMovie(),
+          const SizedBox(
             height: 20,
           ),
-          NewReleases(),
-          SizedBox(
+          const NewReleases(),
+          const SizedBox(
             height: 20,
           ),
           RecommendedSection()
