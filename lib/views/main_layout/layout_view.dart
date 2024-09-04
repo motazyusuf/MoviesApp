@@ -33,34 +33,44 @@ class _LayoutViewState extends State<LayoutView> {
       child: Scaffold(
         backgroundColor: ColorPalette.backgroudColor,
         body: layouts[widget.selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Color(0xFF928B8B),
-          type: BottomNavigationBarType.fixed,
-          fixedColor: ColorPalette.accentColor,
-          backgroundColor: ColorPalette.bottomNavBarColor,
-          currentIndex: widget.selectedIndex,
-          onTap: (index) {
-            widget.selectedIndex = index;
-            setState(() {});
-          },
-          items: const [
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: ImageIcon(AssetImage("assets/icons/home_icon.png")),
-            ),
-            BottomNavigationBarItem(
-              label: "Search",
-              icon: ImageIcon(AssetImage("assets/icons/search_icon.png")),
-            ),
-            BottomNavigationBarItem(
-              label: "Browse",
-              icon: ImageIcon(AssetImage("assets/icons/browse_icon.png")),
-            ),
-            BottomNavigationBarItem(
-              label: "Watchlist",
-              icon: ImageIcon(AssetImage("assets/icons/watchlist_icon.png")),
-            ),
-          ],
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          child: BottomNavigationBar(
+            unselectedItemColor: Color(0xFF928B8B),
+            type: BottomNavigationBarType.fixed,
+            fixedColor: ColorPalette.accentColor,
+            backgroundColor: ColorPalette.bottomNavBarColor,
+            currentIndex: widget.selectedIndex,
+            onTap: (index) {
+              widget.selectedIndex = index;
+              setState(() {});
+            },
+            items: const [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: ImageIcon(AssetImage("assets/icons/home_icon.png")),
+              ),
+              BottomNavigationBarItem(
+                label: "Search",
+                icon: ImageIcon(AssetImage("assets/icons/search_icon.png")),
+              ),
+              BottomNavigationBarItem(
+                label: "Browse",
+                icon: ImageIcon(AssetImage("assets/icons/browse_icon.png")),
+              ),
+              BottomNavigationBarItem(
+                label: "Watchlist",
+                icon: ImageIcon(AssetImage("assets/icons/watchlist_icon.png")),
+              ),
+            ],
+          ),
         ),
       ),
     );
