@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/views/home/widgets/movie_poster.dart';
 import 'package:movies_app/views/home/widgets/movie_trailer.dart';
 
+import '../../../core/configurations/pages_routes.dart';
+
 class TopPageMovie extends StatelessWidget {
   const TopPageMovie({super.key});
 
@@ -45,11 +47,15 @@ class TopPageMovie extends StatelessWidget {
               )
             ],
           ),
+
           // Movie Poster
           Positioned(
             top: 100,
             left: 20,
-            child: MoviePoster(),
+            child: InkWell(
+                onTap: () =>
+                    Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
+                child: MoviePoster()),
           )
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/views/home/widgets/new_releases.dart';
 import 'package:movies_app/views/home/widgets/recommended/recommended_section.dart';
@@ -11,16 +12,29 @@ class HomeView extends StatelessWidget {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
     var theme = Theme.of(context);
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TopPageMovie(),
-          SizedBox(
+          CarouselSlider(
+              items: const [
+                TopPageMovie(),
+                TopPageMovie(),
+                TopPageMovie(),
+                TopPageMovie(),
+              ],
+              options: CarouselOptions(
+                  pauseAutoPlayOnTouch: true,
+                  height: 270,
+                  viewportFraction: 1,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3))),
+          // const TopPageMovie(),
+          const SizedBox(
             height: 20,
           ),
-          NewReleases(),
-          SizedBox(
+          const NewReleases(),
+          const SizedBox(
             height: 20,
           ),
           RecommendedSection()
