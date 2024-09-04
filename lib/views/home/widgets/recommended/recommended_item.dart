@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/views/home/widgets/rating.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
 import '../movie_poster.dart';
@@ -13,42 +14,33 @@ class RecommendedItem extends StatelessWidget {
       onTap: () => Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
       child: Container(
         height: 184,
-      width: 97,
-      decoration: BoxDecoration(color: Color(0xFF343534)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          MoviePoster(height: 100),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(height: 15, "assets/icons/ratingStar.png"),
-                    Text(
-                      "7.7",
-                      style: theme.textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
-                Text(
-                  "Dora and the lost city of gold",
-                  style: theme.textTheme.bodyMedium,
-                  maxLines: 1,
-                ),
-                Text(
-                  "2019  PG-13  2h 7m",
-                  style: theme.textTheme.bodySmall,
-                  maxLines: 1,
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+        width: 97,
+        decoration: BoxDecoration(color: Color(0xFF343534)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            MoviePoster(height: 100),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Rating(),
+                  Text(
+                    "Dora and the lost city of gold",
+                    style: theme.textTheme.bodyMedium,
+                    maxLines: 1,
+                  ),
+                  Text(
+                    "2019  PG-13  2h 7m",
+                    style: theme.textTheme.bodySmall,
+                    maxLines: 1,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
