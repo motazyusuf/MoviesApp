@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/views/home/widgets/movie_poster.dart';
+import 'package:movies_app/views/home/widgets/movie_trailer.dart';
 
 class TopPageMovie extends StatelessWidget {
   const TopPageMovie({super.key});
@@ -19,28 +20,7 @@ class TopPageMovie extends StatelessWidget {
               Column(
                 children: [
                   // Trailer Video
-                  Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      Container(
-                        height: height / 4,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage("assets/images/movieCover.png"),
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            size: 60,
-                            Icons.play_circle_outlined,
-                            color: Colors.white,
-                          ))
-                    ],
-                  ),
-
+                  const MovieTrailer(),
                   // Title and Duration
                   Padding(
                     padding: EdgeInsets.only(left: width / 3, top: 20),
