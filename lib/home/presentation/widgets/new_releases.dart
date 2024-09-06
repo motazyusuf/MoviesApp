@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 import '../../../core/theme/color_palette.dart';
-import 'movie_poster.dart';
+import '../../../core/widgets/movie_poster.dart';
 
 class NewReleases extends StatelessWidget {
   const NewReleases({super.key});

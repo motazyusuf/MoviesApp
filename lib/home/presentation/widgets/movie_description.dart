@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/color_palette.dart';
-import '../../widgets/rating.dart';
+import '../../../core/theme/color_palette.dart';
+import '../../../core/widgets/rating.dart';
 
 class MovieDescription extends StatelessWidget {
   const MovieDescription({super.key});

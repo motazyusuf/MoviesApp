@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../core/theme/color_palette.dart';
-import '../browse/browse_view.dart';
-import '../home/home_view.dart';
-import '../search/search_view.dart';
-import '../watchlist/watchlist_view.dart';
+import 'browse/presentation/pages/browse_view.dart';
+import 'core/theme/color_palette.dart';
+import 'home/presentation/pages/home_view.dart';
+import 'search/presentation/pages/search_view.dart';
+import 'watchlist/presentation/pages/watchlist_view.dart';
 
 class LayoutView extends StatefulWidget {
   LayoutView({super.key});

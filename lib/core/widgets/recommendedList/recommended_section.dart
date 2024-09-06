@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/views/home/widgets/recommended/recommended_item.dart';
+import 'package:movies_app/core/widgets/recommendedList/recommended_item.dart';
 
 import '../../../../core/theme/color_palette.dart';
 

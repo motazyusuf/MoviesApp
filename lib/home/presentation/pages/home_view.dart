@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/views/home/widgets/new_releases.dart';
-import 'package:movies_app/views/home/widgets/recommended/recommended_section.dart';
-import 'package:movies_app/views/home/widgets/topPage_movie.dart';
+import 'package:movies_app/home/presentation/widgets/new_releases.dart';
+import 'package:movies_app/home/presentation/widgets/topPage_movie.dart';
+
+import '../../../core/widgets/recommendedList/recommended_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -28,7 +29,7 @@ class HomeView extends StatelessWidget {
                   height: 270,
                   viewportFraction: 1,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3))),
+                  autoPlayInterval: const Duration(seconds: 6))),
           // const TopPageMovie(),
           const SizedBox(
             height: 20,
