@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/views/home/widgets/rating.dart';
+import 'package:movies_app/core/widgets/rating.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
-import '../movie_poster.dart';
+import '../../../../core/widgets/movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {
   const RecommendedItem({super.key});
