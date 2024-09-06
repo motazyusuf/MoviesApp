@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/configurations/pages_routes.dart';
 
 import '../../home/presentation/pages/movie_details_view.dart';
-import '../../layout_view.dart';
 import '../../splash/splash_view.dart';
+import '../layout_view.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
