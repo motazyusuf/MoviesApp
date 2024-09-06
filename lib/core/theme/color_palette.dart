@@ -7,4 +7,5 @@ class ColorPalette{
   static Color accentColor = const Color(0xFFFFBB3B);
   static Color appBarItemsColor = const Color(0xFFFFFFFF);
   static Color bottomNavBarColor = const Color(0xFF1a1a1a);
+  static Color appBarColor = const Color(0xFF1D1E1D);
 }
