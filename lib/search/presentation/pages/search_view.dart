@@ -32,6 +32,15 @@ class _SearchViewState extends State<SearchView> {
               controller: searchBarController,
               style: TextStyle(fontSize: 20),
               decoration: InputDecoration(
+                suffixIcon: searchBarController.text.isEmpty
+                    ? Text("")
+                    : IconButton(
+                        onPressed: () {
+                          searchBarController.text = "";
+                          searchResults = [];
+                          setState(() {});
+                        },
+                        icon: Icon(Icons.close)),
                 prefixIconColor: Colors.white,
                 prefixIcon:
                     ImageIcon(AssetImage("assets/icons/search_icon.png")),
@@ -43,7 +52,7 @@ class _SearchViewState extends State<SearchView> {
                 ),
               ),
               onChanged: (searchBarController) {
-                if (!searchBarController.isEmpty) {
+                if (searchBarController.isNotEmpty) {
                   searchResults = items
                       .where((item) => item.keys
                           .toString()
