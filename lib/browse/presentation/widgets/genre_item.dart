@@ -15,14 +15,17 @@ class GenreItem extends StatelessWidget {
       children: [
         Container(
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/images/genre.jpg"))),
-        ),
+                image: DecorationImage(
+                    opacity: 0.7,
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/img_1.png"))),
+          ),
         Text("Genre",
-            style: theme.textTheme.titleLarge!
-                .copyWith(color: Colors.black, fontWeight: FontWeight.bold))
-      ],
+            style: theme.textTheme.titleLarge!.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 30))
+        ],
       ),
     );
   }
