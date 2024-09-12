@@ -8,4 +8,5 @@ class ColorPalette{
   static Color appBarItemsColor = const Color(0xFFFFFFFF);
   static Color bottomNavBarColor = const Color(0xFF1a1a1a);
   static Color appBarColor = const Color(0xFF1D1E1D);
+  static Color searchBarColor = const Color(0xFF514F4F);
 }
