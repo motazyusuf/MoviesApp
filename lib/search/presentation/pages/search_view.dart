@@ -12,6 +12,7 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   List<Map<String, String>> searchResults = [];
   final searchBarController = TextEditingController();
+  final FocusNode searchBarFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class _SearchViewState extends State<SearchView> {
         child: Column(
           children: [
             TextFormField(
+              focusNode: searchBarFocus,
               controller: searchBarController,
               style: TextStyle(fontSize: 20),
               decoration: InputDecoration(
@@ -38,6 +40,7 @@ class _SearchViewState extends State<SearchView> {
                         onPressed: () {
                           searchBarController.text = "";
                           searchResults = [];
+                          searchBarFocus.unfocus();
                           setState(() {});
                         },
                         icon: Icon(Icons.close)),
