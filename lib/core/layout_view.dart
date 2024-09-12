@@ -10,7 +10,7 @@ import 'theme/color_palette.dart';
 class LayoutView extends StatefulWidget {
   LayoutView({super.key});
 
-  int selectedIndex = 0;
+  int selectedIndex = 1;
 
   @override
   State<LayoutView> createState() => _LayoutViewState();
