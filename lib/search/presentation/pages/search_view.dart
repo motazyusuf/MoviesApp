@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
-import 'package:movies_app/search/presentation/widgets/searched_item.dart';
+import 'package:movies_app/core/widgets/vertical_list_item.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -70,7 +70,7 @@ class _SearchViewState extends State<SearchView> {
                         color: ColorPalette.appBarItemsColor,
                       ),
                       itemBuilder: (context, index) {
-                        return SearchedItems(
+                        return VerticalListItem(
                             searchResults: searchResults, index: index);
                       },
                       itemCount: searchResults.length,

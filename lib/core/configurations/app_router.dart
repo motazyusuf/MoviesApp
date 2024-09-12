@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/configurations/pages_routes.dart';
 
+import '../../browse/presentation/pages/genre_details_view.dart';
 import '../../home/presentation/pages/movie_details_view.dart';
 import '../../splash/splash_view.dart';
 import '../layout_view.dart';
@@ -19,6 +20,10 @@ class AppRouter {
       case PagesRoutes.movieDetailsView:
         return MaterialPageRoute(
             builder: (context) => MovieDetailsView(), settings: settings);
+
+      case PagesRoutes.genreDetailsView:
+        return MaterialPageRoute(
+            builder: (context) => GenreDetailsView(), settings: settings);
 
       default:
         return MaterialPageRoute(

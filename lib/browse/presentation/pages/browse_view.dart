@@ -13,8 +13,9 @@ class BrowseView extends StatelessWidget {
         child: Container(
           margin: EdgeInsets.only(top: 20),
           child: AppBar(
+            centerTitle: true,
             surfaceTintColor: Colors.transparent,
-            title: Text("Browse Category "),
+            title: Text("Browse Categories"),
             backgroundColor: ColorPalette.backgroudColor,
           ),
         ),
@@ -22,10 +23,11 @@ class BrowseView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: GridView.builder(
+          itemCount: 9,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 1.7,
               crossAxisCount: 2,
-              mainAxisSpacing: 30,
+              mainAxisSpacing: 25,
               crossAxisSpacing: 20),
           itemBuilder: (context, index) => GenreItem(),
         ),

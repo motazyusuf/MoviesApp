@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 
-class SearchedItems extends StatelessWidget {
-  SearchedItems({super.key, required this.searchResults, required this.index});
+class VerticalListItem extends StatelessWidget {
+  VerticalListItem(
+      {super.key, required this.searchResults, required this.index});
 
   List searchResults;
   int index;

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/configurations/pages_routes.dart';
+
 class GenreItem extends StatelessWidget {
   const GenreItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return Stack(
-      alignment: Alignment.center,
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, PagesRoutes.genreDetailsView),
+      child: Stack(
+        alignment: Alignment.center,
       children: [
         Container(
           decoration: const BoxDecoration(
@@ -19,6 +23,7 @@ class GenreItem extends StatelessWidget {
             style: theme.textTheme.titleLarge!
                 .copyWith(color: Colors.black, fontWeight: FontWeight.bold))
       ],
+      ),
     );
   }
 }
