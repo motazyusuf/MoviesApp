@@ -62,7 +62,20 @@ class _SearchViewState extends State<SearchView> {
                     ),
                     Image.asset("assets/images/noMovies.png")
                   ])
-                : SearchedItems(searchResults: searchResults)
+                : Expanded(
+                    child: ListView.separated(
+                      scrollDirection: Axis.vertical,
+                      separatorBuilder: (context, index) => Divider(
+                        height: 20,
+                        color: ColorPalette.appBarItemsColor,
+                      ),
+                      itemBuilder: (context, index) {
+                        return SearchedItems(
+                            searchResults: searchResults, index: index);
+                      },
+                      itemCount: searchResults.length,
+                    ),
+                  )
           ],
         ),
       ),
