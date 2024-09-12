@@ -10,13 +10,12 @@ import 'theme/color_palette.dart';
 class LayoutView extends StatefulWidget {
   LayoutView({super.key});
 
-  int selectedIndex = 1;
-
   @override
   State<LayoutView> createState() => _LayoutViewState();
 }
 
 class _LayoutViewState extends State<LayoutView> {
+  int selectedIndex = 0;
   List<Widget> layouts = [
     const HomeView(),
     const SearchView(),
@@ -32,7 +31,7 @@ class _LayoutViewState extends State<LayoutView> {
       ),
       child: Scaffold(
         backgroundColor: ColorPalette.backgroudColor,
-        body: layouts[widget.selectedIndex],
+        body: layouts[selectedIndex],
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
             boxShadow: <BoxShadow>[
@@ -47,9 +46,9 @@ class _LayoutViewState extends State<LayoutView> {
             type: BottomNavigationBarType.fixed,
             fixedColor: ColorPalette.accentColor,
             backgroundColor: ColorPalette.bottomNavBarColor,
-            currentIndex: widget.selectedIndex,
+            currentIndex: selectedIndex,
             onTap: (index) {
-              widget.selectedIndex = index;
+              selectedIndex = index;
               setState(() {});
             },
             items: const [

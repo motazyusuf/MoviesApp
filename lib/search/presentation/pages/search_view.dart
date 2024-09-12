@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
-import 'package:movies_app/search/presentation/widgets/searched_item.dart';
+import 'package:movies_app/core/widgets/vertical_list_item.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -12,6 +12,7 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   List<Map<String, String>> searchResults = [];
   final searchBarController = TextEditingController();
+  final FocusNode searchBarFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +30,20 @@ class _SearchViewState extends State<SearchView> {
         child: Column(
           children: [
             TextFormField(
+              focusNode: searchBarFocus,
               controller: searchBarController,
               style: TextStyle(fontSize: 20),
               decoration: InputDecoration(
+                suffixIcon: searchBarController.text.isEmpty
+                    ? Text("")
+                    : IconButton(
+                        onPressed: () {
+                          searchBarController.text = "";
+                          searchResults = [];
+                          searchBarFocus.unfocus();
+                          setState(() {});
+                        },
+                        icon: Icon(Icons.close)),
                 prefixIconColor: Colors.white,
                 prefixIcon:
                     ImageIcon(AssetImage("assets/icons/search_icon.png")),
@@ -43,7 +55,7 @@ class _SearchViewState extends State<SearchView> {
                 ),
               ),
               onChanged: (searchBarController) {
-                if (!searchBarController.isEmpty) {
+                if (searchBarController.isNotEmpty) {
                   searchResults = items
                       .where((item) => item.keys
                           .toString()
@@ -62,7 +74,20 @@ class _SearchViewState extends State<SearchView> {
                     ),
                     Image.asset("assets/images/noMovies.png")
                   ])
-                : SearchedItems(searchResults: searchResults)
+                : Expanded(
+                    child: ListView.separated(
+                      scrollDirection: Axis.vertical,
+                      separatorBuilder: (context, index) => Divider(
+                        height: 20,
+                        color: ColorPalette.appBarItemsColor,
+                      ),
+                      itemBuilder: (context, index) {
+                        return VerticalListItem(
+                            searchResults: searchResults, index: index);
+                      },
+                      itemCount: searchResults.length,
+                    ),
+                  )
           ],
         ),
       ),
