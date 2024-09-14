@@ -26,7 +26,7 @@ class _SearchViewState extends State<SearchView> {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
+        padding: const EdgeInsets.only(top: 50, right: 20, left: 20),
         child: Column(
           children: [
             TextFormField(

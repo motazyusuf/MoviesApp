@@ -33,17 +33,20 @@ class _WatchlistViewState extends State<WatchlistView> {
           ),
         ),
       ),
-      body: ListView.separated(
-        scrollDirection: Axis.vertical,
-        separatorBuilder: (context, index) => Divider(
-          height: 20,
-          color: ColorPalette.appBarItemsColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: ListView.separated(
+          scrollDirection: Axis.vertical,
+          separatorBuilder: (context, index) => Divider(
+            height: 20,
+            color: ColorPalette.appBarItemsColor,
+          ),
+          itemBuilder: (context, index) {
+            return VerticalWatchlistItem(
+                index: index, items: items, isBookmarked: isBookmarked);
+          },
+          itemCount: items.length,
         ),
-        itemBuilder: (context, index) {
-          return VerticalWatchlistItem(
-              index: index, items: items, isBookmarked: isBookmarked);
-        },
-        itemCount: items.length,
       ),
     );
   }
