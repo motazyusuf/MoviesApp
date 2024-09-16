@@ -1,10 +1,13 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'core/configurations/app_router.dart';
 import 'core/configurations/pages_routes.dart';
+import 'core/services/bloc_observer.dart';
 import 'core/theme/application_theme_manager.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
