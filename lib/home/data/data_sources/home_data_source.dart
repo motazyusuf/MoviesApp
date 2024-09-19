@@ -9,31 +9,25 @@ abstract class HomeDataSource {
 }
 
 class OnlineHomeDataSource extends HomeDataSource {
-  final Dio _dio;
+  final Dio dio;
 
-  OnlineHomeDataSource(this._dio);
+  OnlineHomeDataSource(this.dio);
 
   @override
   Future<Response> popularData() async {
-    return await _dio.get("movie/popular",
+    return await dio.get("movie/popular",
         queryParameters: {'language': 'en-US', 'page': 1});
-    // TODO: implement homeData
-    throw UnimplementedError();
   }
 
   @override
   Future<Response> topRatedData() async {
-    return await _dio.get("movie/upcoming",
+    return await dio.get("movie/upcoming",
         queryParameters: {'language': 'en-US', 'page': 1});
-    // TODO: implement topRatedData
-    throw UnimplementedError();
   }
 
   @override
   Future<Response> upcomingData() async {
-    return await _dio.get("movie/top_rated",
+    return await dio.get("movie/top_rated",
         queryParameters: {'language': 'en-US', 'page': 1});
-    // TODO: implement upcomingData
-    throw UnimplementedError();
   }
 }

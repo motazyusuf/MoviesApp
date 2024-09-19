@@ -4,7 +4,7 @@ import 'package:movies_app/core/constants/constants.dart';
 
 class WebServices {
   static WebServices? _this;
-  Dio _dio = Dio();
+  Dio dio = Dio();
 
   factory WebServices() {
     _this ?? WebServices._();
@@ -12,13 +12,13 @@ class WebServices {
   }
 
   WebServices._() {
-    _dio.options.baseUrl = Constants.domain;
+    dio.options.baseUrl = Constants.domain;
     initializeInterceptors();
   }
 
   initializeInterceptors() {
-    _dio.interceptors.clear();
-    _dio.interceptors.add(
+    dio.interceptors.clear();
+    dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
           // Do something before request is sent.

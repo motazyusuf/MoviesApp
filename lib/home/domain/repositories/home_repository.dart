@@ -1,7 +1,10 @@
+import 'package:movies_app/home/domain/entities/home_entities.dart';
+import 'package:movies_app/home/domain/use_cases/top_rated_use_case.dart';
+
 abstract class HomeRepository {
-  getPopularData();
+  Future<PopularEntity> getPopularMovies();
 
-  getUpcomingData();
+  Future<NewReleaseEntity> getNewReleaseMovies();
 
-  getTopRatedData();
+  Future<TopRatedUseCase> getTopRatedMovies();
 }
