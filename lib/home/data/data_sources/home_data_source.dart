@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:movies_app/core/models/models.dart';
 
 abstract class HomeDataSource {
-  Future<Response> popularData();
+  Future<MoviesModel> popularData();
 
-  Future<Response> upcomingData();
+  Future<MoviesModel> newReleaseData();
 
-  Future<Response> topRatedData();
+  Future<MoviesModel> recommendedData();
 }
 
 class OnlineHomeDataSource extends HomeDataSource {
@@ -14,20 +15,26 @@ class OnlineHomeDataSource extends HomeDataSource {
   OnlineHomeDataSource(this.dio);
 
   @override
-  Future<Response> popularData() async {
-    return await dio.get("movie/popular",
-        queryParameters: {'language': 'en-US', 'page': 1});
+  Future<MoviesModel> popularData() async {
+    Response response = await dio.get(
+      "movie/popular",
+    );
+    return MoviesModel.fromJson(response.data);
   }
 
   @override
-  Future<Response> topRatedData() async {
-    return await dio.get("movie/upcoming",
-        queryParameters: {'language': 'en-US', 'page': 1});
+  Future<MoviesModel> newReleaseData() async {
+    Response response = await dio.get(
+      "movie/upcoming",
+    );
+    return MoviesModel.fromJson(response.data);
   }
 
   @override
-  Future<Response> upcomingData() async {
-    return await dio.get("movie/top_rated",
-        queryParameters: {'language': 'en-US', 'page': 1});
+  Future<MoviesModel> recommendedData() async {
+    Response response = await dio.get(
+      "movie/top_rated",
+    );
+    return MoviesModel.fromJson(response.data);
   }
 }

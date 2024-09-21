@@ -13,6 +13,7 @@ class WebServices {
 
   WebServices._() {
     dio.options.baseUrl = Constants.domain;
+    dio.options.headers = {"Authorization": "Bear ${Constants.accessToken}"};
     initializeInterceptors();
   }
 

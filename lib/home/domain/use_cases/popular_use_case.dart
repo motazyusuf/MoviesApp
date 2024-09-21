@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:movies_app/home/domain/repositories/home_repository.dart';
 
 import '../../../core/failure/failure.dart';
-import '../entities/home_entities.dart';
+import '../entities/recommended_entity.dart';
 
 class PopularUseCase {
   PopularUseCase(this.homeRepo);
