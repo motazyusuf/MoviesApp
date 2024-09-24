@@ -1,4 +1,4 @@
-abstract class PopularEntity {
+class PopularEntity {
   int? popularId;
   String? popularTitle;
   num? popular_vote_average;

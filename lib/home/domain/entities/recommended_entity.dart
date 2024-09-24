@@ -1,4 +1,4 @@
-abstract class RecommendedEntity {
+class RecommendedEntity {
   int? recommendedId;
   String? recommendedTitle;
   num? recommended_vote_average;

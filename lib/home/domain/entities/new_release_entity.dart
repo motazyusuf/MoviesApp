@@ -1,4 +1,4 @@
-abstract class NewReleaseEntity {
+class NewReleaseEntity {
   int? newReleaseId;
   String? newRelease_poster_path;
 
