@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/home/presentation/manager/home_cubit.dart';
 
 import '../browse/presentation/pages/browse_view.dart';
 import '../home/presentation/pages/home_view.dart';
@@ -17,7 +19,8 @@ class LayoutView extends StatefulWidget {
 class _LayoutViewState extends State<LayoutView> {
   int selectedIndex = 0;
   List<Widget> layouts = [
-    const HomeView(),
+    BlocProvider(
+        create: (BuildContext context) => HomeCubit(), child: HomeView()),
     const SearchView(),
     const BrowseView(),
     const WatchlistView(),
