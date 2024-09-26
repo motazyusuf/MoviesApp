@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/home/domain/entities/new_release_entity.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
+import '../../domain/entities/movie_entity.dart';
 
 class NewReleases extends StatelessWidget {
   NewReleases({super.key, required this.moviesList});
 
-  List<NewReleaseEntity> moviesList;
+  List<MovieEntity> moviesList;
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,12 @@ class NewReleases extends StatelessWidget {
                           onTap: () => Navigator.pushNamed(
                               context, PagesRoutes.movieDetailsView),
                           child: MoviePoster(
-                            imagePath: "",
+                            movie: moviesList[index],
                             width: 96.8,
                             height: 127.74,
                           ),
                         ),
-                    itemCount: 200)),
+                    itemCount: moviesList.length)),
           ],
         ),
       ),

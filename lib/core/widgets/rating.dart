@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 
 class Rating extends StatelessWidget {
-  Rating({super.key, this.ratingTextSize = 10, this.iconSize = 13});
+  Rating(
+      {super.key,
+      this.ratingTextSize = 10,
+      this.iconSize = 13,
+      required this.rating});
 
   double ratingTextSize;
   double iconSize;
+  String rating;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class Rating extends StatelessWidget {
           width: 3,
         ),
         Text(
-          "7.7",
+          rating,
           style: theme.textTheme.bodyMedium!.copyWith(fontSize: ratingTextSize),
         ),
       ],

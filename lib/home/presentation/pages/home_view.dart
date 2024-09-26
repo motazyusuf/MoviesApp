@@ -19,18 +19,14 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     // TODO: implement initState
     BlocProvider.of<HomeCubit>(context).popularMovies();
-    // BlocProvider.of<HomeCubit>(context).recommendedMovies();
-    // BlocProvider.of<HomeCubit>(context).newReleasedMovies();
+    BlocProvider.of<HomeCubit>(context).recommendedMovies();
+    BlocProvider.of<HomeCubit>(context).newReleasedMovies();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     var cubit = HomeCubit.get(context);
-    cubit.popularMoviesList;
-    var height = MediaQuery.sizeOf(context).height;
-    var width = MediaQuery.sizeOf(context).width;
-    var theme = Theme.of(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Scaffold(
@@ -38,14 +34,12 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               CarouselSlider(
-                  // items: [
-                  //   TopPageMovie(movie: cubit.popularMoviesList[1])
-                  // ],
                   items: cubit.popularMoviesList
                       .map((movie) => TopPageMovie(movie: movie))
                       .toList(),
                   options: CarouselOptions(
-                      pauseAutoPlayOnTouch: true,
+                      pauseAutoPlayOnManualNavigate: true,
+                      pauseAutoPlayInFiniteScroll: true,
                       height: 270,
                       viewportFraction: 1,
                       autoPlay: true,
@@ -58,7 +52,9 @@ class _HomeViewState extends State<HomeView> {
               const SizedBox(
                 height: 20,
               ),
-              RecommendedSection()
+              RecommendedSection(
+                moviesList: cubit.recommendedMoviesList,
+              )
             ],
           ),
         );

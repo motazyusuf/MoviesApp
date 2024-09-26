@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:movies_app/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/home/presentation/widgets/movie_description.dart';
 
 import '../../../core/theme/color_palette.dart';
-import '../../../core/widgets/recommendedList/recommended_section.dart';
+import '../../../core/widgets/movie_poster.dart';
+import '../../../core/widgets/movie_trailer.dart';
 
 class MovieDetailsView extends StatelessWidget {
   const MovieDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final movie = ModalRoute.of(context)?.settings.arguments as MovieEntity;
     var theme = Theme.of(context);
     return AnnotatedRegion(
         value: SystemUiOverlayStyle(
@@ -19,14 +22,19 @@ class MovieDetailsView extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              "Dora and the lost city of gold",
+              movie.popularTitle!,
               style: theme.textTheme.titleLarge,
             ),
           ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //MovieTrailer(),
+              SizedBox(
+                height: 170,
+                child: MovieTrailer(
+                  coverPath: movie.popular_backdrop_path!,
+                ),
+              ),
 
               // Body
               Padding(
@@ -35,12 +43,12 @@ class MovieDetailsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Movie Title
-                    Text("Dora and the lost city of gold",
+                    Text(movie.popularTitle!,
                         style: theme.textTheme.titleMedium),
 
                     // Movie Release-PG-Duration
                     Text(
-                      "2019  PG-13  2h 7m",
+                      movie.popular_release_date!,
                       style: theme.textTheme.bodyMedium,
                     ),
                     const SizedBox(
@@ -51,8 +59,12 @@ class MovieDetailsView extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // MoviePoster(),
-                        MovieDescription(),
+                        MoviePoster(
+                          height: 220,
+                          width: 130,
+                          movie: movie,
+                        ),
+                        MovieDescription(movie: movie),
                       ],
                     ),
                     const SizedBox(
@@ -61,9 +73,9 @@ class MovieDetailsView extends StatelessWidget {
                   ],
                 ),
               ),
-              RecommendedSection(
-                label: "More Like This",
-              )
+              // RecommendedSection(
+              //   label: "More Like This",
+              // )
             ],
           ),
         ));
