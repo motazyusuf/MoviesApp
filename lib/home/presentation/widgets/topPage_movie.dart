@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/movie_poster.dart';
+import 'package:movies_app/home/domain/entities/popular_entity.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 import '../../../core/widgets/movie_trailer.dart';
 
 class TopPageMovie extends StatelessWidget {
-  const TopPageMovie({super.key});
+  TopPageMovie({super.key, required this.movie});
+
+  PopularEntity movie;
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +23,25 @@ class TopPageMovie extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Trailer Video
-                  const MovieTrailer(),
+                  MovieTrailer(coverPath: movie.popular_backdrop_path!),
                   // Title and Duration
                   Padding(
-                    padding: EdgeInsets.only(left: width / 3, top: 20),
+                    padding: EdgeInsets.only(left: width / 2.39, top: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Dora and the lost city of gold",
+                          movie.popularTitle!,
                           style: theme.textTheme.titleSmall,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
-                          "2019  PG-13  2h 7m",
+                          movie.popular_release_date!,
                           style: theme.textTheme.bodyMedium,
                         )
                       ],
@@ -55,7 +59,7 @@ class TopPageMovie extends StatelessWidget {
             child: InkWell(
                 onTap: () =>
                     Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
-                child: MoviePoster()),
+                child: MoviePoster(imagePath: movie.popular_poster_path!)),
           )
         ],
       ),

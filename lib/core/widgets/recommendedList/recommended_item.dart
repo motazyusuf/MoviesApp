@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/rating.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
-import '../../../../core/widgets/movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {
   const RecommendedItem({super.key});
@@ -30,7 +29,7 @@ class RecommendedItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MoviePoster(height: 100),
+            // MoviePoster(height: 100),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Column(

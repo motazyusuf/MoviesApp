@@ -19,8 +19,7 @@ class LayoutView extends StatefulWidget {
 class _LayoutViewState extends State<LayoutView> {
   int selectedIndex = 0;
   List<Widget> layouts = [
-    BlocProvider(
-        create: (BuildContext context) => HomeCubit(), child: HomeView()),
+    BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
     const SearchView(),
     const BrowseView(),
     const WatchlistView(),

@@ -7,13 +7,15 @@ class WebServices {
   Dio dio = Dio();
 
   factory WebServices() {
-    _this ?? WebServices._();
-    return _this!;
+    if (_this == null)
+      return WebServices._();
+    else
+      return _this!;
   }
 
   WebServices._() {
     dio.options.baseUrl = Constants.domain;
-    dio.options.headers = {"Authorization": "Bear ${Constants.accessToken}"};
+    dio.options.headers = {"Authorization": "Bearer ${Constants.accessToken}"};
     initializeInterceptors();
   }
 
@@ -27,7 +29,12 @@ class WebServices {
           // you can resolve a `Response` using `handler.resolve(response)`.
           // If you want to reject the request with a error message,
           // you can reject with a `DioException` using `handler.reject(dioError)`.
-          options.headers["Authorization"] = "Bear ${Constants.accessToken}";
+          // options.headers["Authorization"] ="Bear ${Constants.accessToken}";
+          debugPrint("---> I am Interceptor on request <----");
+          print("base url -->>> ${options.baseUrl}");
+          print("path --> ${options.path}");
+          print("headers -->>> ${options.headers}");
+
           debugPrint("---> I am Interceptor on request <----");
           return handler.next(options);
         },

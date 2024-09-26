@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/constants/constants.dart';
 
 class MovieTrailer extends StatelessWidget {
-  const MovieTrailer({super.key});
+  MovieTrailer({super.key, required this.coverPath});
+
+  String coverPath;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,10 @@ class MovieTrailer extends StatelessWidget {
       children: [
         Container(
           height: height / 4,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage("assets/images/movieCover.png"),
+              image: NetworkImage("${Constants.imageDomain}$coverPath"),
             ),
           ),
         ),

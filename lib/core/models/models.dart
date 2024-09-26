@@ -21,7 +21,7 @@ class SingleMovieModel {
   String? poster_path;
   String? backdrop_path;
   String? release_date;
-  List<int>? genre_ids;
+  List<dynamic>? genre_ids;
   String? overview;
 
   SingleMovieModel({this.id,

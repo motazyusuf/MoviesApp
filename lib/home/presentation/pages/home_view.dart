@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/home/presentation/manager/home_cubit.dart';
 import 'package:movies_app/home/presentation/widgets/new_releases.dart';
 import 'package:movies_app/home/presentation/widgets/topPage_movie.dart';
 
@@ -14,38 +16,53 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
+  void initState() {
+    // TODO: implement initState
+    BlocProvider.of<HomeCubit>(context).popularMovies();
+    // BlocProvider.of<HomeCubit>(context).recommendedMovies();
+    // BlocProvider.of<HomeCubit>(context).newReleasedMovies();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var cubit = HomeCubit.get(context);
+    cubit.popularMoviesList;
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
     var theme = Theme.of(context);
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          CarouselSlider(
-              items: const [
-                TopPageMovie(),
-                TopPageMovie(),
-                TopPageMovie(),
-                TopPageMovie(),
-              ],
-              options: CarouselOptions(
-                  pauseAutoPlayOnTouch: true,
-                  height: 270,
-                  viewportFraction: 1,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 6))),
-          // const TopPageMovie(),
-          const SizedBox(
-            height: 20,
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CarouselSlider(
+                  // items: [
+                  //   TopPageMovie(movie: cubit.popularMoviesList[1])
+                  // ],
+                  items: cubit.popularMoviesList
+                      .map((movie) => TopPageMovie(movie: movie))
+                      .toList(),
+                  options: CarouselOptions(
+                      pauseAutoPlayOnTouch: true,
+                      height: 270,
+                      viewportFraction: 1,
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 6))),
+              // const TopPageMovie(),
+              const SizedBox(
+                height: 20,
+              ),
+              NewReleases(moviesList: cubit.newReleaseMoviesList),
+              const SizedBox(
+                height: 20,
+              ),
+              RecommendedSection()
+            ],
           ),
-          const NewReleases(),
-          const SizedBox(
-            height: 20,
-          ),
-          RecommendedSection()
-        ],
-      ),
+        );
+      },
     );
   }
 }

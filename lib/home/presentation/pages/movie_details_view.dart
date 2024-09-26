@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movies_app/core/widgets/movie_poster.dart';
 import 'package:movies_app/home/presentation/widgets/movie_description.dart';
 
 import '../../../core/theme/color_palette.dart';
-import '../../../core/widgets/movie_trailer.dart';
 import '../../../core/widgets/recommendedList/recommended_section.dart';
 
 class MovieDetailsView extends StatelessWidget {
@@ -28,7 +26,7 @@ class MovieDetailsView extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MovieTrailer(),
+              //MovieTrailer(),
 
               // Body
               Padding(
@@ -53,7 +51,7 @@ class MovieDetailsView extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MoviePoster(),
+                        // MoviePoster(),
                         MovieDescription(),
                       ],
                     ),
