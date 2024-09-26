@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/rating.dart';
+import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
-import '../../../../core/widgets/movie_poster.dart';
+import '../movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {
-  const RecommendedItem({super.key});
+  RecommendedItem({super.key, required this.movie});
+
+  MovieEntity movie;
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, PagesRoutes.movieDetailsView),
+      onTap: () => Navigator.pushNamed(context, PagesRoutes.movieDetailsView,
+          arguments: movie),
       child: Container(
         width: 97,
         decoration: BoxDecoration(
@@ -30,20 +34,27 @@ class RecommendedItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MoviePoster(height: 100),
+            MoviePoster(
+              height: 100,
+              movie: movie,
+            ),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Rating(),
+                  Rating(
+                    rating: num.parse(
+                            movie.popular_vote_average!.toStringAsFixed(1))
+                        .toString(),
+                  ),
                   Text(
-                    "Dora and the lost city of gold",
+                    movie.popularTitle!,
                     style: theme.textTheme.bodyMedium,
                     maxLines: 1,
                   ),
                   Text(
-                    "2019  PG-13  2h 7m",
+                    movie.popular_release_date!,
                     style: theme.textTheme.bodySmall,
                     maxLines: 1,
                   )

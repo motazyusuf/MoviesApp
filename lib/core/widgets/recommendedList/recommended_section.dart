@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/recommendedList/recommended_item.dart';
+import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
 import '../../../../core/theme/color_palette.dart';
 
 class RecommendedSection extends StatelessWidget {
-  RecommendedSection({super.key, this.label = "Recommended"});
+  RecommendedSection(
+      {super.key, this.label = "Recommended", required this.moviesList});
 
   String label;
+  List<MovieEntity> moviesList;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,9 @@ class RecommendedSection extends StatelessWidget {
                         width: 10,
                       ),
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => RecommendedItem(),
-                  itemCount: 200)),
+                  itemBuilder: (context, index) =>
+                      RecommendedItem(movie: moviesList[index]),
+                  itemCount: moviesList.length)),
         ],
       ),
     );

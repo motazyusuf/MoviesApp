@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../core/configurations/pages_routes.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
+import '../../domain/entities/movie_entity.dart';
 
 class NewReleases extends StatelessWidget {
-  const NewReleases({super.key});
+  NewReleases({super.key, required this.moviesList});
+
+  List<MovieEntity> moviesList;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +36,15 @@ class NewReleases extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => InkWell(
                           onTap: () => Navigator.pushNamed(
-                              context, PagesRoutes.movieDetailsView),
+                              context, PagesRoutes.movieDetailsView,
+                              arguments: moviesList[index]),
                           child: MoviePoster(
+                            movie: moviesList[index],
                             width: 96.8,
                             height: 127.74,
                           ),
                         ),
-                    itemCount: 200)),
+                    itemCount: moviesList.length)),
           ],
         ),
       ),

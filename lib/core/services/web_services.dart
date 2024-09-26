@@ -4,21 +4,24 @@ import 'package:movies_app/core/constants/constants.dart';
 
 class WebServices {
   static WebServices? _this;
-  Dio _dio = Dio();
+  Dio dio = Dio();
 
   factory WebServices() {
-    _this ?? WebServices._();
-    return _this!;
+    if (_this == null)
+      return WebServices._();
+    else
+      return _this!;
   }
 
   WebServices._() {
-    _dio.options.baseUrl = Constants.domain;
+    dio.options.baseUrl = Constants.domain;
+    dio.options.headers = {"Authorization": "Bearer ${Constants.accessToken}"};
     initializeInterceptors();
   }
 
   initializeInterceptors() {
-    _dio.interceptors.clear();
-    _dio.interceptors.add(
+    dio.interceptors.clear();
+    dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
           // Do something before request is sent.
@@ -26,7 +29,12 @@ class WebServices {
           // you can resolve a `Response` using `handler.resolve(response)`.
           // If you want to reject the request with a error message,
           // you can reject with a `DioException` using `handler.reject(dioError)`.
-          options.headers["Authorization"] = "Bear ${Constants.accessToken}";
+          // options.headers["Authorization"] ="Bear ${Constants.accessToken}";
+          debugPrint("---> I am Interceptor on request <----");
+          print("base url -->>> ${options.baseUrl}");
+          print("path --> ${options.path}");
+          print("headers -->>> ${options.headers}");
+
           debugPrint("---> I am Interceptor on request <----");
           return handler.next(options);
         },

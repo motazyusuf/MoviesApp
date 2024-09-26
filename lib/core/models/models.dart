@@ -1,7 +1,9 @@
-class MoviesModel {
-  List<SingleMovieModel> moviesList;
 
-  MoviesModel({required this.moviesList});
+
+class MoviesModel {
+  List<SingleMovieModel>? moviesList;
+
+  MoviesModel({this.moviesList});
 
   factory MoviesModel.fromJson(Map<String, dynamic> json) {
     return MoviesModel(
@@ -12,26 +14,25 @@ class MoviesModel {
 }
 
 class SingleMovieModel {
-  int id;
-  String title;
-  double vote_average;
-  bool adult;
-  String poster_path;
-  String backdrop_path;
-  String release_date;
-  List<int> genre_ids;
-  String overview;
+  int? id;
+  String? title;
+  num? vote_average;
+  bool? adult;
+  String? poster_path;
+  String? backdrop_path;
+  String? release_date;
+  List<dynamic>? genre_ids;
+  String? overview;
 
-  SingleMovieModel(
-      {required this.id,
-      required this.title,
-      required this.vote_average,
-      required this.adult,
-      required this.poster_path,
-      required this.backdrop_path,
-      required this.release_date,
-      required this.genre_ids,
-      required this.overview});
+  SingleMovieModel({this.id,
+    this.title,
+    this.vote_average,
+    this.adult,
+    this.poster_path,
+    this.backdrop_path,
+    this.release_date,
+    this.genre_ids,
+    this.overview});
 
   factory SingleMovieModel.fromJson(Map<String, dynamic> json) {
     return SingleMovieModel(
@@ -48,9 +49,9 @@ class SingleMovieModel {
 }
 
 class Genres {
-  List<SingleGenre> genresList;
+  List<SingleGenre>? genresList;
 
-  Genres({required this.genresList});
+  Genres({this.genresList});
 
   factory Genres.fromJson(Map<String, dynamic> json) {
     return Genres(
@@ -61,10 +62,10 @@ class Genres {
 }
 
 class SingleGenre {
-  int id;
-  String name;
+  int? id;
+  String? name;
 
-  SingleGenre({required this.id, required this.name});
+  SingleGenre({this.id, this.name});
 
   factory SingleGenre.fromJson(Map<String, dynamic> json) {
     return SingleGenre(id: json["id"], name: json["name"]);
