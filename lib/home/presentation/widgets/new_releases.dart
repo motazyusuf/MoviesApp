@@ -36,7 +36,8 @@ class NewReleases extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => InkWell(
                           onTap: () => Navigator.pushNamed(
-                              context, PagesRoutes.movieDetailsView),
+                              context, PagesRoutes.movieDetailsView,
+                              arguments: moviesList[index]),
                           child: MoviePoster(
                             movie: moviesList[index],
                             width: 96.8,
