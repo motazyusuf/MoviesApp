@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/configurations/pages_routes.dart';
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
-import '../../domain/entities/movie_entity.dart';
 
 class NewReleases extends StatelessWidget {
   NewReleases({super.key, required this.moviesList});

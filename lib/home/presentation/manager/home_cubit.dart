@@ -4,11 +4,12 @@ import 'package:movies_app/core/failure/failure.dart';
 import 'package:movies_app/core/services/web_services.dart';
 import 'package:movies_app/home/data/data_sources/home_data_source.dart';
 import 'package:movies_app/home/data/repositories_imp/home_repositories_imp.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/home/domain/repositories/home_repository.dart';
 import 'package:movies_app/home/domain/use_cases/new_release_use_case.dart';
 import 'package:movies_app/home/domain/use_cases/popular_use_case.dart';
 import 'package:movies_app/home/domain/use_cases/recommended_use_case.dart';
+
+import '../../../core/entities/movie_entity.dart';
 
 part 'home_state.dart';
 

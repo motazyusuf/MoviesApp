@@ -6,14 +6,12 @@ abstract class SearchDataSource {
 
 class OnlineSearchDataSource extends SearchDataSource {
   Dio dio;
-  String query;
 
-  OnlineSearchDataSource({required this.dio, required this.query});
+  OnlineSearchDataSource({required this.dio});
 
   @override
   Future<Response> searchData() async {
-    Response response =
-        await dio.get("search/movie", queryParameters: {"query": query});
+    Response response = await dio.get("movie/popular");
     return response;
     // TODO: implement searchData
     throw UnimplementedError();

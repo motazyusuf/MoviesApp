@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../core/theme/color_palette.dart';
-import '../../../core/widgets/vertical_list_item.dart';
 
 class GenreDetailsView extends StatelessWidget {
   GenreDetailsView({super.key});
@@ -39,7 +38,7 @@ class GenreDetailsView extends StatelessWidget {
               color: ColorPalette.appBarItemsColor,
             ),
             itemBuilder: (context, index) {
-              return VerticalListItem(searchResults: items, index: index);
+              // return VerticalListItem(searchResults: items, index: index);
             },
             itemCount: items.length,
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/constants/constants.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
+
+import '../entities/movie_entity.dart';
 
 class MoviePoster extends StatefulWidget {
   MoviePoster(
@@ -31,7 +32,7 @@ class _MoviePosterState extends State<MoviePoster> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: NetworkImage(
-                  "${Constants.imageDomain}${widget.movie.popular_poster_path}"),
+                  "${Constants.imageDomain}${widget.movie.movie_poster_path}"),
             ),
           ),
         ),

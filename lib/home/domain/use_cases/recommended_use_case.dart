@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_app/home/domain/repositories/home_repository.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/failure/failure.dart';
-import '../entities/movie_entity.dart';
 
 class RecommenedUseCase {
   RecommenedUseCase(this.homeRepo);

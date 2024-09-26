@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/home/presentation/widgets/movie_description.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
 import '../../../core/widgets/movie_trailer.dart';
@@ -22,7 +22,7 @@ class MovieDetailsView extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              movie.popularTitle!,
+              movie.movieTitle!,
               style: theme.textTheme.titleLarge,
             ),
           ),
@@ -32,7 +32,7 @@ class MovieDetailsView extends StatelessWidget {
               SizedBox(
                 height: 170,
                 child: MovieTrailer(
-                  coverPath: movie.popular_backdrop_path!,
+                  coverPath: movie.movie_backdrop_path!,
                 ),
               ),
 
@@ -43,12 +43,11 @@ class MovieDetailsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Movie Title
-                    Text(movie.popularTitle!,
-                        style: theme.textTheme.titleMedium),
+                    Text(movie.movieTitle!, style: theme.textTheme.titleMedium),
 
                     // Movie Release-PG-Duration
                     Text(
-                      movie.popular_release_date!,
+                      movie.movie_release_date!,
                       style: theme.textTheme.bodyMedium,
                     ),
                     const SizedBox(
