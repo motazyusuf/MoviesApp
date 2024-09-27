@@ -9,7 +9,7 @@ import 'package:movies_app/home/domain/use_cases/new_release_use_case.dart';
 import 'package:movies_app/home/domain/use_cases/popular_use_case.dart';
 import 'package:movies_app/home/domain/use_cases/recommended_use_case.dart';
 
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 
 part 'home_state.dart';
 

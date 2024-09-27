@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/constants/constants.dart';
 
-import '../entities/movie_entity.dart';
+import '../movie_entities/movie_entity.dart';
 
 class MoviePoster extends StatefulWidget {
   MoviePoster(

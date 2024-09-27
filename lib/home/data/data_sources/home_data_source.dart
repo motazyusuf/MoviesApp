@@ -15,25 +15,22 @@ class OnlineHomeDataSource extends HomeDataSource {
 
   @override
   Future<Response> popularData() async {
-    Response response = await dio.get(
+    return await dio.get(
       "movie/popular",
     );
-    return response;
   }
 
   @override
   Future<Response> newReleaseData() async {
-    Response response = await dio.get(
+    return await dio.get(
       "movie/upcoming",
     );
-    return response;
   }
 
   @override
   Future<Response> recommendedData() async {
-    Response response = await dio.get(
+    return await dio.get(
       "movie/top_rated",
     );
-    return response;
   }
 }

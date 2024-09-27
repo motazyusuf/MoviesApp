@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:movies_app/home/presentation/widgets/movie_description.dart';
 
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
 import '../../../core/widgets/movie_trailer.dart';

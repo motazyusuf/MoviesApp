@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 import 'package:movies_app/core/widgets/vertical_list_item.dart';
 
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 import '../manager/search_cubit.dart';
 
 class SearchView extends StatefulWidget {

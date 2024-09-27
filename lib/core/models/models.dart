@@ -1,5 +1,4 @@
 
-
 class MoviesModel {
   List<SingleMovieModel>? moviesList;
 
@@ -48,26 +47,3 @@ class SingleMovieModel {
   }
 }
 
-class Genres {
-  List<SingleGenre>? genresList;
-
-  Genres({this.genresList});
-
-  factory Genres.fromJson(Map<String, dynamic> json) {
-    return Genres(
-        genresList: (json["genres"] as List)
-            .map((genre) => SingleGenre.fromJson(genre))
-            .toList());
-  }
-}
-
-class SingleGenre {
-  int? id;
-  String? name;
-
-  SingleGenre({this.id, this.name});
-
-  factory SingleGenre.fromJson(Map<String, dynamic> json) {
-    return SingleGenre(id: json["id"], name: json["name"]);
-  }
-}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 import '../../../core/widgets/rating.dart';
 
 class MovieDescription extends StatelessWidget {
