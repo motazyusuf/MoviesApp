@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_app/search/domain/repositories/search_repository.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/failure/failure.dart';
-import '../entities/search_movie_entity.dart';
 
 class SearchUseCase {
   SearchUseCase(this.searchRepo);

@@ -5,6 +5,7 @@ import 'package:movies_app/home/presentation/manager/home_cubit.dart';
 
 import '../browse/presentation/pages/browse_view.dart';
 import '../home/presentation/pages/home_view.dart';
+import '../search/presentation/manager/search_cubit.dart';
 import '../search/presentation/pages/search_view.dart';
 import '../watchlist/presentation/pages/watchlist_view.dart';
 import 'theme/color_palette.dart';
@@ -20,7 +21,10 @@ class _LayoutViewState extends State<LayoutView> {
   int selectedIndex = 0;
   List<Widget> layouts = [
     BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
-    const SearchView(),
+    BlocProvider(
+      create: (context) => SearchCubit(""),
+      child: SearchView(),
+    ),
     const BrowseView(),
     const WatchlistView(),
   ];

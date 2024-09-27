@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/movie_poster.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
 import '../../../core/configurations/pages_routes.dart';
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/widgets/movie_trailer.dart';
 
 class TopPageMovie extends StatelessWidget {
@@ -29,7 +29,7 @@ class TopPageMovie extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Trailer Video
-                    MovieTrailer(coverPath: movie.popular_backdrop_path!),
+                    MovieTrailer(coverPath: movie.movie_backdrop_path!),
 
                     // Title and release
                     Padding(
@@ -38,14 +38,14 @@ class TopPageMovie extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            movie.popularTitle!,
+                            movie.movieTitle!,
                             style: theme.textTheme.titleSmall,
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            movie.popular_release_date!,
+                            movie.movie_release_date!,
                             style: theme.textTheme.bodyMedium,
                           )
                         ],

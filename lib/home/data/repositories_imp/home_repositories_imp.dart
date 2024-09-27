@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:movies_app/core/failure/failure.dart';
 import 'package:movies_app/core/models/models.dart';
 import 'package:movies_app/home/data/data_sources/home_data_source.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/home/domain/repositories/home_repository.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../mapper/mapper.dart';
 
 class HomeRepositoriesImp extends HomeRepository {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/recommendedList/recommended_item.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
 import '../../../../core/theme/color_palette.dart';
+import '../../entities/movie_entity.dart';
 
 class RecommendedSection extends StatelessWidget {
   RecommendedSection(

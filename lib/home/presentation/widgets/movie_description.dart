@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../../../core/widgets/rating.dart';
 
 class MovieDescription extends StatelessWidget {
@@ -21,7 +21,7 @@ class MovieDescription extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Rating(
-            rating: num.parse(movie.popular_vote_average!.toStringAsFixed(1))
+            rating: num.parse(movie.movie_vote_average!.toStringAsFixed(1))
                 .toString(),
             ratingTextSize: 15,
             iconSize: 20,

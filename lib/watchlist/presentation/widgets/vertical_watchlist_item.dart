@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/vertical_list_item.dart';
-
 class VerticalWatchlistItem extends StatefulWidget {
   VerticalWatchlistItem(
       {super.key,
@@ -22,7 +20,7 @@ class _VerticalWatchlistItemState extends State<VerticalWatchlistItem> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        VerticalListItem(searchResults: widget.items, index: widget.index),
+        // VerticalListItem(searchResults: widget.items, index: widget.index),
         InkWell(
             onTap: () {
               setState(() {

@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/failure/failure.dart';
 import 'package:movies_app/core/models/models.dart';
-import 'package:movies_app/search/domain/entities/search_movie_entity.dart';
 
+import '../../../core/entities/movie_entity.dart';
 import '../../domain/repositories/search_repository.dart';
 import '../data_sources/search_data_source.dart';
 import '../mapper/mapper.dart';

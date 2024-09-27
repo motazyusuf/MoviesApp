@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/rating.dart';
-import 'package:movies_app/home/domain/entities/movie_entity.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
+import '../../entities/movie_entity.dart';
 import '../movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {
@@ -44,17 +44,16 @@ class RecommendedItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Rating(
-                    rating: num.parse(
-                            movie.popular_vote_average!.toStringAsFixed(1))
-                        .toString(),
+                    rating: num.parse(movie.movie_vote_average!.toStringAsFixed(1))
+                            .toString(),
                   ),
                   Text(
-                    movie.popularTitle!,
+                    movie.movieTitle!,
                     style: theme.textTheme.bodyMedium,
                     maxLines: 1,
                   ),
                   Text(
-                    movie.popular_release_date!,
+                    movie.movie_release_date!,
                     style: theme.textTheme.bodySmall,
                     maxLines: 1,
                   )
