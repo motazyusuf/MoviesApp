@@ -18,29 +18,16 @@ class _SearchViewState extends State<SearchView> {
   final searchBarController = TextEditingController();
   final FocusNode searchBarFocus = FocusNode();
 
-  @override
-  void initState() {
-    BlocProvider.of<SearchCubit>(context).searchMovies();
-    // TODO: implement initState
-    super.initState();
-  }
+  // @override
+  // // void initState() {
+  // //   BlocProvider.of<SearchCubit>(context).searchMovies();
+  // //   // TODO: implement initState
+  // //   super.initState();
+  // // }
 
   @override
   Widget build(BuildContext context) {
-    var cubit = SearchCubit.get(context);
     var height = MediaQuery.sizeOf(context).height;
-    var theme = Theme.of(context);
-    List<MovieEntity> items = [];
-    items = cubit.searchMoviesList;
-
-    print("Movies list ->> ${cubit.searchMoviesList}");
-    print("Items --->>>> $items");
-
-    // [
-    //   {"Dora": "assets/images/movieCover.png"},
-    //   {"Deadpool": "assets/ima ges/movieCover2.png"},
-    //   {"Narcos": "assets/images/movieCover3.png"},
-    // ];
 
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
@@ -74,13 +61,16 @@ class _SearchViewState extends State<SearchView> {
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                   ),
-                  onChanged: (searchBarController) {
+                  onChanged: (searchBarController) async {
                     if (searchBarController.isNotEmpty) {
-                      searchResults = items
+                      var cubit = SearchCubit(searchBarController);
+                      await cubit.searchMovies();
+                      searchResults = cubit.searchMoviesList
                           .where((item) => item.movieTitle!
                               .toLowerCase()
                               .contains(searchBarController.toLowerCase()))
                           .toList();
+                      print("result of Search list ->> $searchResults");
                     } else
                       searchResults = [];
                     setState(() {});

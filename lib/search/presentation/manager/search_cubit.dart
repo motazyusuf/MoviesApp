@@ -12,18 +12,20 @@ import '../../../core/failure/failure.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit() : super(SearchInitial());
+  SearchCubit(this.query) : super(SearchInitial());
 
   static SearchCubit get(context) => BlocProvider.of(context);
 
   WebServices _webServices = WebServices();
+  String query;
   late SearchUseCase _searchUseCase;
   late SearchRepository _searchRepository;
   late SearchDataSource _searchDataSource;
   List<MovieEntity> searchMoviesList = [];
 
   Future<void> searchMovies() async {
-    _searchDataSource = OnlineSearchDataSource(dio: _webServices.dio);
+    _searchDataSource =
+        OnlineSearchDataSource(dio: _webServices.dio, query: query);
     _searchRepository = SearchRepositoriesImp(_searchDataSource);
     _searchUseCase = SearchUseCase(_searchRepository);
     final result = await _searchUseCase.execute();

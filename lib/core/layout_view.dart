@@ -22,7 +22,7 @@ class _LayoutViewState extends State<LayoutView> {
   List<Widget> layouts = [
     BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
     BlocProvider(
-      create: (context) => SearchCubit(),
+      create: (context) => SearchCubit(""),
       child: SearchView(),
     ),
     const BrowseView(),

@@ -37,7 +37,6 @@ class HomeCubit extends Cubit<HomeState> {
     return result.fold((fail) {
       emit(FailedData(fail));
     }, (data) {
-      print("I am here");
       popularMoviesList = data;
       emit(PopularDataLoaded(popularMoviesList));
     });

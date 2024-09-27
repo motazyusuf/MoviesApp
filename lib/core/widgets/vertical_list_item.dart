@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/constants/constants.dart';
 import 'package:movies_app/core/widgets/rating.dart';
+import 'package:overflow_text_animated/overflow_text_animated.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 import '../entities/movie_entity.dart';
@@ -39,9 +40,15 @@ class VerticalListItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                movie.movieTitle!,
-                style: theme.textTheme.bodyLarge,
+              SizedBox(
+                width: 170,
+                child: OverflowTextAnimated(
+                  animation: OverFlowTextAnimations.scrollOpposite,
+                  text: movie.movieTitle!,
+                  animateDuration: Duration(milliseconds: 1500),
+                  delay: Duration(milliseconds: 500),
+                  style: theme.textTheme.bodyLarge,
+                ),
               ),
               Text(movie.movie_release_date!),
               Rating(

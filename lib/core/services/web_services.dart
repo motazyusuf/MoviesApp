@@ -30,32 +30,33 @@ class WebServices {
           // If you want to reject the request with a error message,
           // you can reject with a `DioException` using `handler.reject(dioError)`.
           // options.headers["Authorization"] ="Bear ${Constants.accessToken}";
-          debugPrint("---> I am Interceptor on request <----");
+          debugPrint("--->Interceptor on request start<----");
           print("base url -->>> ${options.baseUrl}");
-          print("path --> ${options.path}");
           print("headers -->>> ${options.headers}");
+          print("query params -->>> ${options.queryParameters}");
+          print("path --> ${options.path}");
 
-          debugPrint("---> I am Interceptor on request <----");
+          debugPrint("--->Interceptor on request end<----");
           return handler.next(options);
         },
         onResponse: (Response response, ResponseInterceptorHandler handler) {
           // Do something with response data.
           // If you want to reject the request with a error message,
           // you can reject a `DioException` object using `handler.reject(dioError)`.
-          debugPrint("---> I am Interceptor on response <----");
+          debugPrint("--->Interceptor on response start<----");
           debugPrint("Status code: ${response.statusCode}");
-          debugPrint("Data: ${response.data}");
-          debugPrint("---> I am Interceptor on response <----");
+          debugPrint("Data count: ${response.data}");
+          debugPrint("--->Interceptor on response end<----");
           return handler.next(response);
         },
         onError: (DioException error, ErrorInterceptorHandler handler) {
           // Do something with response error.
           // If you want to resolve the request with some custom data,
           // you can resolve a `Response` object using `handler.resolve(response)`.
-          debugPrint("---> I am Interceptor on error <----");
+          debugPrint("--->Interceptor on error start<----");
           debugPrint("Status code: ${error.response?.statusCode}");
           debugPrint("Error: ${error.message}");
-          debugPrint("---> I am Interceptor on error <----");
+          debugPrint("--->Interceptor on error end<----");
           return handler.next(error);
         },
       ),
