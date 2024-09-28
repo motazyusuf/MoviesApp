@@ -17,7 +17,8 @@ class GenreRepositoryImp extends GenreRepository {
   Future<Either<Failure, List<GenreEntity>>> getGenres() async {
     try {
       Response response = await _genreDataSource.genreData();
-      if (response.statusCode == "200") {
+      if (response.statusCode == 200) {
+        print("I am here");
         GenresModel genresModelObject = GenresModel.fromJson(response.data);
         return right(
           genresModelObject.genresList!

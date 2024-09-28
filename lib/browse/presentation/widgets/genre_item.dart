@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/browse/domain/entities/genre_entity.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 
 class GenreItem extends StatelessWidget {
-  const GenreItem({super.key});
+  GenreItem({super.key, required this.genre});
+
+  GenreEntity genre;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,12 @@ class GenreItem extends StatelessWidget {
                     fit: BoxFit.cover,
                     image: AssetImage("assets/images/img_1.png"))),
           ),
-        Text("Genre",
-            style: theme.textTheme.titleLarge!.copyWith(
+          Text(genre.genreName,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.titleLarge!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
-                  fontSize: 30))
+                  fontSize: 25))
         ],
       ),
     );
