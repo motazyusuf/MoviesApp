@@ -1,6 +1,6 @@
 import 'package:movies_app/core/models/models.dart';
 
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 
 class Mapper {
   static MovieEntity toMovieEntity(SingleMovieModel movie) {

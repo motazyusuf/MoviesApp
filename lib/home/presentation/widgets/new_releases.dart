@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/configurations/pages_routes.dart';
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/movie_poster.dart';
 

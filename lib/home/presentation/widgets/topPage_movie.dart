@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/movie_poster.dart';
 
 import '../../../core/configurations/pages_routes.dart';
-import '../../../core/entities/movie_entity.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 import '../../../core/widgets/movie_trailer.dart';
 
 class TopPageMovie extends StatelessWidget {

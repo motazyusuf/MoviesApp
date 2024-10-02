@@ -4,7 +4,7 @@ import 'package:movies_app/core/widgets/rating.dart';
 import 'package:overflow_text_animated/overflow_text_animated.dart';
 
 import '../../../core/configurations/pages_routes.dart';
-import '../entities/movie_entity.dart';
+import '../movie_entities/movie_entity.dart';
 
 class VerticalListItem extends StatelessWidget {
   VerticalListItem({

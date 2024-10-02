@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/rating.dart';
 
 import '../../../../core/configurations/pages_routes.dart';
-import '../../entities/movie_entity.dart';
+import '../../movie_entities/movie_entity.dart';
 import '../movie_poster.dart';
 
 class RecommendedItem extends StatelessWidget {

@@ -12,9 +12,8 @@ class OnlineSearchDataSource extends SearchDataSource {
 
   @override
   Future<Response> searchData() async {
-    Response response =
-        await dio.get("search/movie", queryParameters: {"query": query});
-    return response;
+    return await dio.get("search/movie", queryParameters: {"query": query});
+
     // TODO: implement searchData
     throw UnimplementedError();
   }

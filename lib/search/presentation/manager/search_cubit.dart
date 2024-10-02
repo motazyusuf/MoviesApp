@@ -6,8 +6,8 @@ import 'package:movies_app/search/data/repositories_imp/search_repositories_imp.
 import 'package:movies_app/search/domain/repositories/search_repository.dart';
 import 'package:movies_app/search/domain/use_cases/search_use_case.dart';
 
-import '../../../core/entities/movie_entity.dart';
 import '../../../core/failure/failure.dart';
+import '../../../core/movie_entities/movie_entity.dart';
 
 part 'search_state.dart';
 

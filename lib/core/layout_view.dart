@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/browse/presentation/manager/genre_cubit.dart';
 import 'package:movies_app/home/presentation/manager/home_cubit.dart';
 
 import '../browse/presentation/pages/browse_view.dart';
@@ -25,7 +26,10 @@ class _LayoutViewState extends State<LayoutView> {
       create: (context) => SearchCubit(""),
       child: SearchView(),
     ),
-    const BrowseView(),
+    BlocProvider(
+      create: (context) => GenreCubit(),
+      child: BrowseView(),
+    ),
     const WatchlistView(),
   ];
 

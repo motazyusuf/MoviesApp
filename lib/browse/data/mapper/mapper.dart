@@ -1,9 +1,15 @@
+import 'package:movies_app/browse/data/models/genre_model.dart';
+import 'package:movies_app/browse/domain/entities/genre_entity.dart';
 import 'package:movies_app/core/models/models.dart';
-
-import '../../../core/movie_entities/movie_entity.dart';
+import 'package:movies_app/core/movie_entities/movie_entity.dart';
 
 class Mapper {
-  static MovieEntity toMovieEntity(SingleMovieModel movie) {
+  static GenreEntity toGenreEntity(SingleGenreModel genre) {
+    return GenreEntity(
+        genreName: genre.name ?? "Default", genreID: genre.id ?? 011);
+  }
+
+  static MovieEntity toGenreMoviesEntity(SingleMovieModel movie) {
     return MovieEntity(
         movie_backdrop_path: movie.backdrop_path ?? "Default",
         movie_poster_path: movie.poster_path ?? "Default",
