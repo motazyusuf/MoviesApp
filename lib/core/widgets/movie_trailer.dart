@@ -9,7 +9,6 @@ class MovieTrailer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
-    var width = MediaQuery.sizeOf(context).width;
     var theme = Theme.of(context);
 
     return Stack(

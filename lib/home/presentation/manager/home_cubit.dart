@@ -32,6 +32,7 @@ class HomeCubit extends Cubit<HomeState> {
     _homeDataSource = OnlineHomeDataSource(_webServices.dio);
     _homeRepo = HomeRepositoriesImp(_homeDataSource);
     _popularUseCase = PopularUseCase(_homeRepo);
+    emit(HomeDataLoading());
     final result = await _popularUseCase.execute();
 
     return result.fold((fail) {
@@ -46,6 +47,7 @@ class HomeCubit extends Cubit<HomeState> {
     _homeDataSource = OnlineHomeDataSource(_webServices.dio);
     _homeRepo = HomeRepositoriesImp(_homeDataSource);
     _recommenedUseCase = RecommenedUseCase(_homeRepo);
+    emit(HomeDataLoading());
     final result = await _recommenedUseCase.execute();
     return result.fold((fail) {
       emit(FailedData(fail));
@@ -59,6 +61,8 @@ class HomeCubit extends Cubit<HomeState> {
     _homeDataSource = OnlineHomeDataSource(_webServices.dio);
     _homeRepo = HomeRepositoriesImp(_homeDataSource);
     _newReleaseUseCase = NewReleaseUseCase(_homeRepo);
+    emit(HomeDataLoading());
+
     final result = await _newReleaseUseCase.execute();
 
     return result.fold((fail) {
