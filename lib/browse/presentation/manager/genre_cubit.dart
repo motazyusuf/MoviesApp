@@ -23,9 +23,10 @@ class GenreCubit extends Cubit<GenreState> {
 
   Future<void> movieGenres() async {
     _webServices = WebServices();
-    _genreDataSource = OnlineGenreDataSource(_webServices.dio);
+    _genreDataSource = OnlineGenreDataSource(dio: _webServices.dio);
     _genreRepository = GenreRepositoryImp(_genreDataSource);
     _genreUseCase = GenreUseCase(_genreRepository);
+    emit(GenresDataLoading());
     final result = await _genreUseCase.excute();
 
     return result.fold((fail) {

@@ -5,9 +5,10 @@ sealed class GenreState {}
 
 final class GenreInitial extends GenreState {}
 
+final class GenresDataLoading extends GenreState {}
+
 final class GenresDataLoaded extends GenreState {
   final List<GenreEntity> genres;
-
   GenresDataLoaded(this.genres);
 }
 

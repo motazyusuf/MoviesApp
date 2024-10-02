@@ -12,7 +12,8 @@ class GenreItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, PagesRoutes.genreDetailsView),
+      onTap: () => Navigator.pushNamed(context, PagesRoutes.genreDetailsView,
+          arguments: genre),
       child: Stack(
         alignment: Alignment.center,
       children: [

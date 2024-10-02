@@ -29,6 +29,8 @@ class BrowseView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: BlocBuilder<GenreCubit, GenreState>(
           builder: (context, state) {
+            if (state is GenresDataLoading)
+              return Center(child: CircularProgressIndicator());
             return GridView.builder(
               itemCount: cubit.genresList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
