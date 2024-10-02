@@ -31,6 +31,9 @@ class VerticalListItemShimmer extends StatelessWidget {
                 height: 10,
                 width: 100,
               ),
+              SizedBox(
+                height: 3,
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: ColorPalette.bottomNavBarColor,
@@ -40,6 +43,9 @@ class VerticalListItemShimmer extends StatelessWidget {
                 ),
                 height: 10,
                 width: 60,
+              ),
+              SizedBox(
+                height: 3,
               ),
               Container(
                 decoration: BoxDecoration(
