@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/theme/color_palette.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MoviePosterShimmer extends StatelessWidget {
@@ -10,8 +11,8 @@ class MoviePosterShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.shade300,
-      highlightColor: Colors.grey.shade100,
+      baseColor: ColorPalette.bottomNavBarColor,
+      highlightColor: ColorPalette.LighterBackgroudColor,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,

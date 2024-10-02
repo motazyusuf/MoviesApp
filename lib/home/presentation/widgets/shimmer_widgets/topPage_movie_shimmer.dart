@@ -3,6 +3,8 @@ import 'package:movies_app/core/widgets/core_shimmer/movie_poster_shimmer.dart';
 import 'package:movies_app/core/widgets/core_shimmer/movie_trailer_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../core/theme/color_palette.dart';
+
 class TopPageMovieShimmer extends StatelessWidget {
   const TopPageMovieShimmer({super.key});
 
@@ -29,25 +31,38 @@ class TopPageMovieShimmer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(
+                          height: 5,
+                        ),
                         Shimmer.fromColors(
-                          baseColor: Colors.grey.shade300,
-                          highlightColor: Colors.grey.shade100,
+                          baseColor: ColorPalette.bottomNavBarColor,
+                          highlightColor: ColorPalette.LighterBackgroudColor,
                           child: Container(
-                            height: 5,
-                            width: 30,
-                            color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(
+                                6,
+                              ),
+                            ),
+                            height: 10,
+                            width: 100,
                           ),
                         ),
                         const SizedBox(
                           height: 5,
                         ),
                         Shimmer.fromColors(
-                          baseColor: Colors.grey.shade300,
-                          highlightColor: Colors.grey.shade100,
+                          baseColor: ColorPalette.bottomNavBarColor,
+                          highlightColor: ColorPalette.LighterBackgroudColor,
                           child: Container(
-                            height: 5,
-                            width: 15,
-                            color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(
+                                6,
+                              ),
+                            ),
+                            height: 7,
+                            width: 60,
                           ),
                         )
                       ],
