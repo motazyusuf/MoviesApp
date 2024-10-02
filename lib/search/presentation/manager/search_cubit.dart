@@ -28,6 +28,7 @@ class SearchCubit extends Cubit<SearchState> {
         OnlineSearchDataSource(dio: _webServices.dio, query: query);
     _searchRepository = SearchRepositoriesImp(_searchDataSource);
     _searchUseCase = SearchUseCase(_searchRepository);
+    emit(SearchLoading());
     final result = await _searchUseCase.execute();
 
     return result.fold((fail) {

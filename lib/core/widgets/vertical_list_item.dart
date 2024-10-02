@@ -16,7 +16,6 @@ class VerticalListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.sizeOf(context).height;
     var theme = Theme.of(context);
 
     return InkWell(

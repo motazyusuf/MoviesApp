@@ -5,6 +5,8 @@ sealed class SearchState {}
 
 final class SearchInitial extends SearchState {}
 
+final class SearchLoading extends SearchState {}
+
 final class SearchDataLoaded extends SearchState {
   final List<MovieEntity> searchMovies;
 
