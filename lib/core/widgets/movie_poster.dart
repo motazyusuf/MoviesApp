@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/constants/constants.dart';
+import 'package:movies_app/core/services/firebase_utils.dart';
 
 import '../movie_entities/movie_entity.dart';
 
@@ -39,6 +40,11 @@ class _MoviePosterState extends State<MoviePoster> {
         InkWell(
             onTap: () {
               setState(() {
+                if (!isBookmarked)
+                  FirebaseUtils.addMovie(widget.movie);
+                else
+                  FirebaseUtils.deleteMovie(widget.movie);
+
                 isBookmarked = !isBookmarked;
               });
             },

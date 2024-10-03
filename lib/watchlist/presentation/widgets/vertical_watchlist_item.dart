@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/services/firebase_utils.dart';
+
+import '../../../core/widgets/vertical_list_item.dart';
 
 class VerticalWatchlistItem extends StatefulWidget {
   VerticalWatchlistItem(
@@ -20,10 +23,13 @@ class _VerticalWatchlistItemState extends State<VerticalWatchlistItem> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // VerticalListItem(searchResults: widget.items, index: widget.index),
+        VerticalListItem(
+          movie: widget.items[widget.index],
+        ),
         InkWell(
             onTap: () {
               setState(() {
+                FirebaseUtils.deleteMovie(widget.items[widget.index]);
                 widget.isBookmarked = !widget.isBookmarked;
               });
             },

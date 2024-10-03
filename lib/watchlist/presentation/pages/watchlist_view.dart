@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/services/firebase_utils.dart';
+import 'package:movies_app/core/widgets/core_shimmer/vertical_list_item_shimmer.dart';
 import 'package:movies_app/watchlist/presentation/widgets/vertical_watchlist_item.dart';
 
+import '../../../core/movie_entities/movie_entity.dart';
 import '../../../core/theme/color_palette.dart';
 
 class WatchlistView extends StatefulWidget {
@@ -15,11 +19,6 @@ class _WatchlistViewState extends State<WatchlistView> {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> items = [
-      {"Dora": "assets/images/movieCover.png"},
-      {"Deadpool": "assets/images/movieCover2.png"},
-      {"Narcos": "assets/images/movieCover3.png"},
-    ];
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(100, 75),
@@ -34,20 +33,47 @@ class _WatchlistViewState extends State<WatchlistView> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: ListView.separated(
-          scrollDirection: Axis.vertical,
-          separatorBuilder: (context, index) => Divider(
-            height: 20,
-            color: ColorPalette.appBarItemsColor,
-          ),
-          itemBuilder: (context, index) {
-            return VerticalWatchlistItem(
-                index: index, items: items, isBookmarked: isBookmarked);
-          },
-          itemCount: items.length,
-        ),
-      ),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: StreamBuilder<QuerySnapshot<MovieEntity>>(
+            stream: FirebaseUtils.getDataStream(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const Center(
+                  child: Text("Something went wrong!"),
+                );
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  separatorBuilder: (context, index) => Divider(
+                    height: 20,
+                    color: ColorPalette.appBarItemsColor,
+                  ),
+                  itemBuilder: (context, index) {
+                    return VerticalListItemShimmer();
+                  },
+                  itemCount: 100,
+                );
+              }
+
+              List<MovieEntity> movies = snapshot.data!.docs
+                  .map((document) => document.data())
+                  .toList();
+
+              return ListView.separated(
+                scrollDirection: Axis.vertical,
+                separatorBuilder: (context, index) => Divider(
+                  height: 20,
+                  color: ColorPalette.appBarItemsColor,
+                ),
+                itemBuilder: (context, index) {
+                  return VerticalWatchlistItem(
+                      index: index, items: movies, isBookmarked: isBookmarked);
+                },
+                itemCount: movies.length,
+              );
+            },
+          )),
     );
   }
 }
