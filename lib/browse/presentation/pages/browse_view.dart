@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/browse/presentation/manager/genre_cubit.dart';
 import 'package:movies_app/browse/presentation/widgets/genre_item.dart';
+import 'package:movies_app/browse/presentation/widgets/shimmer_widgets/genre_item_shimmer.dart';
 import 'package:movies_app/core/theme/color_palette.dart';
 
 class BrowseView extends StatelessWidget {
@@ -29,8 +30,18 @@ class BrowseView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: BlocBuilder<GenreCubit, GenreState>(
           builder: (context, state) {
-            if (state is GenresDataLoading)
-              return Center(child: CircularProgressIndicator());
+            if (state is GenresDataLoading) {
+              return GridView.builder(
+                itemCount: 100,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.7,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 25,
+                    crossAxisSpacing: 20),
+                itemBuilder: (context, index) => GenreItemShimmer(),
+              );
+              ;
+            }
             return GridView.builder(
               itemCount: cubit.genresList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

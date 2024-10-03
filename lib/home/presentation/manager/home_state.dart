@@ -5,6 +5,8 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
+final class HomeDataLoading extends HomeState {}
+
 final class RecommendedDataLoaded extends HomeState {
   final List<MovieEntity> recommendedMovies;
 

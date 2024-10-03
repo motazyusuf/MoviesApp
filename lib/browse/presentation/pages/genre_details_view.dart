@@ -3,24 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/browse/domain/entities/genre_entity.dart';
 import 'package:movies_app/browse/presentation/manager/genreMoviesManager/genre_movies_cubit.dart';
+import 'package:movies_app/core/movie_entities/movie_entity.dart';
+import 'package:movies_app/core/widgets/core_shimmer/vertical_list_item_shimmer.dart';
 
 import '../../../core/theme/color_palette.dart';
 import '../../../core/widgets/vertical_list_item.dart';
 
-class GenreDetailsView extends StatefulWidget {
+class GenreDetailsView extends StatelessWidget {
   GenreDetailsView({super.key});
 
   @override
-  State<GenreDetailsView> createState() => _GenreDetailsViewState();
-}
-
-class _GenreDetailsViewState extends State<GenreDetailsView> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var genre = ModalRoute.of(context)?.settings.arguments as GenreEntity;
@@ -46,8 +38,19 @@ class _GenreDetailsViewState extends State<GenreDetailsView> {
           ),
           body: BlocBuilder<GenreMoviesCubit, GenreMoviesState>(
             builder: (context, state) {
-              if (state is GenreMoviesDataLoading)
-                return Center(child: CircularProgressIndicator());
+              if (state is GenreMoviesDataLoading) {
+                return ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  separatorBuilder: (context, index) => Divider(
+                    height: 20,
+                    color: ColorPalette.appBarItemsColor,
+                  ),
+                  itemBuilder: (context, index) {
+                    return VerticalListItemShimmer();
+                  },
+                  itemCount: 100,
+                );
+              }
               return ListView.separated(
                 scrollDirection: Axis.vertical,
                 separatorBuilder: (context, index) => Divider(

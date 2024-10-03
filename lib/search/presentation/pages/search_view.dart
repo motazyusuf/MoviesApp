@@ -29,61 +29,61 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
 
-    return BlocBuilder<SearchCubit, SearchState>(
-      builder: (context, state) {
-        return Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.only(top: 50, right: 20, left: 20),
-            child: Column(
-              children: [
-                TextFormField(
-                  focusNode: searchBarFocus,
-                  controller: searchBarController,
-                  style: TextStyle(fontSize: 20),
-                  decoration: InputDecoration(
-                    suffixIcon: searchBarController.text.isEmpty
-                        ? Text("")
-                        : IconButton(
-                            onPressed: () {
-                              searchBarController.text = "";
-                              searchResults = [];
-                              searchBarFocus.unfocus();
-                              setState(() {});
-                            },
-                            icon: Icon(Icons.close)),
-                    prefixIconColor: Colors.white,
-                    prefixIcon:
-                        ImageIcon(AssetImage("assets/icons/search_icon.png")),
-                    isDense: true,
-                    filled: true,
-                    fillColor: ColorPalette.searchBarColor,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                  ),
-                  onChanged: (searchBarController) async {
-                    if (searchBarController.isNotEmpty) {
-                      var cubit = SearchCubit(searchBarController);
-                      await cubit.searchMovies();
-                      searchResults = cubit.searchMoviesList
-                          .where((item) => item.movieTitle!
-                              .toLowerCase()
-                              .contains(searchBarController.toLowerCase()))
-                          .toList();
-                      print("result of Search list ->> $searchResults");
-                    } else
-                      searchResults = [];
-                    setState(() {});
-                  },
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50, right: 20, left: 20),
+        child: Column(
+          children: [
+            TextFormField(
+              focusNode: searchBarFocus,
+              controller: searchBarController,
+              style: TextStyle(fontSize: 20),
+              decoration: InputDecoration(
+                suffixIcon: searchBarController.text.isEmpty
+                    ? Text("")
+                    : IconButton(
+                        onPressed: () {
+                          searchBarController.text = "";
+                          searchResults = [];
+                          searchBarFocus.unfocus();
+                          setState(() {});
+                        },
+                        icon: Icon(Icons.close)),
+                prefixIconColor: Colors.white,
+                prefixIcon:
+                    ImageIcon(AssetImage("assets/icons/search_icon.png")),
+                isDense: true,
+                filled: true,
+                fillColor: ColorPalette.searchBarColor,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
                 ),
-                searchResults.isEmpty
-                    ? Column(children: [
-                        SizedBox(
-                          height: height / 4,
-                        ),
-                        Image.asset("assets/images/noMovies.png")
-                      ])
-                    : Expanded(
+              ),
+              onChanged: (searchBarController) async {
+                if (searchBarController.isNotEmpty) {
+                  var cubit = SearchCubit(searchBarController);
+                  await cubit.searchMovies();
+                  searchResults = cubit.searchMoviesList
+                      .where((item) => item.movieTitle!
+                          .toLowerCase()
+                          .contains(searchBarController.toLowerCase()))
+                      .toList();
+                  print("result of Search list ->> $searchResults");
+                } else
+                  searchResults = [];
+                setState(() {});
+              },
+            ),
+            searchResults.isEmpty
+                ? Column(children: [
+                    SizedBox(
+                      height: height / 4,
+                    ),
+                    Image.asset("assets/images/noMovies.png")
+                  ])
+                : BlocBuilder<SearchCubit, SearchState>(
+                    builder: (context, state) {
+                      return Expanded(
                         child: ListView.separated(
                           scrollDirection: Axis.vertical,
                           separatorBuilder: (context, index) => Divider(
@@ -97,12 +97,12 @@ class _SearchViewState extends State<SearchView> {
                           },
                           itemCount: searchResults.length,
                         ),
-                      )
-              ],
-            ),
-          ),
-        );
-      },
+                      );
+                    },
+                  )
+          ],
+        ),
+      ),
     );
   }
 }
