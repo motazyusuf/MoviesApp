@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/movie_poster.dart';
+import 'package:overflow_text_animated/overflow_text_animated.dart';
 
 import '../../../core/configurations/pages_routes.dart';
 import '../../../core/movie_entities/movie_entity.dart';
@@ -37,10 +38,12 @@ class TopPageMovie extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            movie.movieTitle!,
-                            style: theme.textTheme.titleSmall,
-                          ),
+                          OverflowTextAnimated(
+                              animation: OverFlowTextAnimations.scrollOpposite,
+                              text: movie.movieTitle!,
+                              animateDuration: Duration(milliseconds: 1500),
+                              delay: Duration(milliseconds: 500),
+                              style: theme.textTheme.titleSmall),
                           const SizedBox(
                             height: 5,
                           ),
